@@ -51,38 +51,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-
-// ===== Animated counter for stats =====
-const statItems = document.querySelectorAll('.stat-item h3');
-if (statItems.length > 0) {
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const text = el.textContent;
-        // Only animate pure numbers
-        if (/^\d+$/.test(text)) {
-          const target = parseInt(text);
-          if (target === 0) {
-            el.textContent = '0';
-            statsObserver.unobserve(el);
-            return;
-          }
-          let current = 0;
-          const step = Math.max(1, Math.floor(target / 60));
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
-            el.textContent = current.toLocaleString('tr-TR');
-          }, 16);
-        }
-        statsObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  statItems.forEach(el => statsObserver.observe(el));
-}
