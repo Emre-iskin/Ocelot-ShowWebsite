@@ -565,6 +565,7 @@ img { max-width: 100%; height: auto; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  .container { padding: 0 16px; }
   .nav-links {
     display: none;
     position: absolute;
@@ -573,68 +574,116 @@ img { max-width: 100%; height: auto; }
     background: rgba(15, 15, 15, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
-    padding: 24px;
-    gap: 16px;
+    padding: 20px;
+    gap: 12px;
     border-bottom: 1px solid var(--border);
   }
-
   .nav-links.active { display: flex; }
   .mobile-menu-btn { display: block; }
-  .features-grid { grid-template-columns: 1fr; gap: 16px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .cta-card { padding: 40px 24px; }
-  .hero h1 { font-size: 2.2rem; }
-  .hero-buttons { flex-direction: column; align-items: center; }
-  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+  .hero { min-height: auto; padding: 80px 16px 60px; }
+  .hero-badge { font-size: 0.78rem; padding: 6px 16px; margin-bottom: 20px; }
+  .hero h1 { font-size: 2rem; margin-bottom: 16px; }
+  .hero p { font-size: 1rem; margin-bottom: 28px; }
+  .hero-buttons { flex-direction: column; align-items: stretch; gap: 12px; }
+  .btn { padding: 14px 24px; font-size: 0.95rem; justify-content: center; }
+
+  .features { padding: 60px 0; }
+  .section-header { margin-bottom: 36px; }
+  .section-title { font-size: 1.6rem; }
+  .features-grid { grid-template-columns: 1fr; gap: 12px; }
+  .feature-card { padding: 24px 20px; }
+  .feature-icon { width: 44px; height: 44px; font-size: 1.3rem; margin-bottom: 14px; }
+  .feature-card h3 { font-size: 1.05rem; }
+  .feature-card p { font-size: 0.85rem; }
+
+  .stats { padding: 48px 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-item h3 { font-size: 1.8rem; }
+  .stat-item p { font-size: 0.8rem; }
+
+  .cta { padding: 60px 0; }
+  .cta-card { padding: 32px 20px; border-radius: 16px; }
+  .cta-card h2 { font-size: 1.5rem; }
+  .cta-card p { font-size: 0.95rem; margin-bottom: 24px; }
+
+  .footer { padding: 40px 0 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
+  .footer-brand p { max-width: none; }
+  .footer-col h4 { font-size: 0.78rem; margin-bottom: 10px; }
+  .footer-col a { font-size: 0.85rem; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; font-size: 0.78rem; }
+
+  /* Mobile touch improvements */
+  .btn, .nav-links a, .nav-cta, .mobile-menu-btn {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-cta { padding: 12px 24px; }
 }
 
 @media (max-width: 480px) {
-  .footer-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 14px; }
+  .hero { padding: 70px 14px 50px; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero p { font-size: 0.9rem; }
+  .features-grid { gap: 10px; }
+  .feature-card { padding: 20px 16px; border-radius: 12px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat-item h3 { font-size: 1.5rem; }
+  .cta-card { padding: 28px 16px; }
+  .cta-card h2 { font-size: 1.3rem; }
 }
 
 /* Install Guide */
-.install-guide { padding: 100px 0; background: var(--bg-primary); }
+.install-guide { padding: 80px 0; background: var(--bg-primary); }
 .install-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 32px;
-  margin-bottom: 32px;
+  padding: 28px;
+  margin-bottom: 24px;
 }
 .install-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
-  padding-bottom: 20px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
 }
 .install-platform {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
-.install-platform svg { color: var(--accent); }
-.install-platform h3 { margin: 0; font-size: 1.4rem; }
+.install-platform svg { color: var(--accent); flex-shrink: 0; }
+.install-platform h3 { margin: 0; font-size: 1.3rem; }
 .install-time {
   background: rgba(245,197,66,0.1);
   color: var(--accent);
-  padding: 6px 16px;
+  padding: 5px 14px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
+  white-space: nowrap;
 }
-.install-steps { display: flex; flex-direction: column; gap: 24px; }
+.install-steps { display: flex; flex-direction: column; gap: 20px; }
 .install-step {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: flex-start;
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
 }
 .step-number {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
   background: var(--gradient-1);
   color: #000;
   border-radius: 50%;
@@ -642,40 +691,42 @@ img { max-width: 100%; height: auto; }
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .step-content h4 {
-  margin: 0 0 8px;
-  font-size: 1.05rem;
+  margin: 0 0 6px;
+  font-size: 1rem;
   color: var(--text-primary);
 }
 .step-content p {
   margin: 0;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
+  font-size: 0.9rem;
 }
 .step-phone-path {
-  margin-top: 12px;
+  margin-top: 10px;
   background: rgba(245,197,66,0.08);
   border: 1px solid rgba(245,197,66,0.2);
   border-radius: 8px;
-  padding: 12px 16px;
-  font-size: 0.9rem;
+  padding: 10px 14px;
+  font-size: 0.82rem;
   color: var(--accent);
+  word-break: break-word;
 }
 .install-tip {
-  margin-top: 24px;
+  margin-top: 20px;
   background: rgba(87,242,135,0.08);
   border: 1px solid rgba(87,242,135,0.2);
   border-radius: 10px;
-  padding: 16px 20px;
+  padding: 14px 18px;
   color: #57f287;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.6;
 }
 .install-coming-soon {
   text-align: center;
-  padding: 40px 20px;
+  padding: 32px 16px;
 }
 .coming-soon-badge {
   display: inline-block;
@@ -685,43 +736,77 @@ img { max-width: 100%; height: auto; }
   border-radius: 20px;
   font-weight: 700;
   font-size: 1rem;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .install-coming-soon p {
   color: var(--text-secondary);
   max-width: 500px;
   margin: 0 auto;
   line-height: 1.7;
+  font-size: 0.95rem;
 }
-.faq-section { margin-top: 60px; }
+.faq-section { margin-top: 48px; }
 .faq-section h3 {
   text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 32px;
+  font-size: 1.4rem;
+  margin-bottom: 28px;
 }
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 .faq-item {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 24px;
+  padding: 20px;
 }
 .faq-item h4 {
-  margin: 0 0 10px;
-  font-size: 1rem;
+  margin: 0 0 8px;
+  font-size: 0.95rem;
   color: var(--accent);
+  line-height: 1.4;
 }
 .faq-item p {
   margin: 0;
   color: var(--text-secondary);
   line-height: 1.6;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
 }
+
+/* Mobile Responsive - Install Guide */
 @media (max-width: 768px) {
-  .install-header { flex-direction: column; gap: 12px; align-items: flex-start; }
-  .faq-grid { grid-template-columns: 1fr; }
+  .install-guide { padding: 60px 0; }
+  .install-card { padding: 20px; margin-bottom: 16px; }
+  .install-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+  }
+  .install-platform h3 { font-size: 1.15rem; }
+  .install-steps { gap: 12px; }
+  .install-step {
+    padding: 14px 12px;
+    gap: 12px;
+  }
+  .step-number {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 0.9rem;
+  }
+  .step-content h4 { font-size: 0.95rem; }
+  .step-content p { font-size: 0.85rem; }
+  .faq-grid { grid-template-columns: 1fr; gap: 12px; }
+  .faq-item { padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .install-card { padding: 16px; border-radius: 12px; }
+  .install-step { padding: 12px 10px; }
+  .step-content p { font-size: 0.82rem; }
+  .install-tip { font-size: 0.82rem; padding: 12px 14px; }
 }
